@@ -2,15 +2,6 @@ import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from dotenv import load_dotenv
-import os
-
-# Load .env file
-load_dotenv()
-
-# Get API key from envpip freeze > requirements.txtironment variables
-api_key = os.getenv("GOOGLE_API_KEY")
-
 
 # --- Page Config ---
 st.set_page_config(page_title="ML Algorithm Explainer", page_icon="✨", layout="wide")
@@ -60,7 +51,7 @@ click_btn = st.button("🚀 Generate Code")
 
 # --- LangChain Setup ---
 llm = ChatGoogleGenerativeAI(
-    google_api_key=api_key,
+    google_api_key="AIzaSyAFaWQQYXzVQR7-v87V9_XzgtmBYonWpcs",
     model="gemini-1.5-flash"
 )
 
