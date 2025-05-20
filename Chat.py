@@ -3,6 +3,11 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
+#key
+
+
+
+
 # --- Page Config ---
 st.set_page_config(page_title="ML Algorithm Explainer", page_icon="✨", layout="wide")
 
@@ -49,11 +54,22 @@ name_of_algo = st.text_input("Enter ML Algorithm Name Here")
 # --- Button ---
 click_btn = st.button("🚀 Generate Code")
 
+
+
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+
 # --- LangChain Setup ---
+
 llm = ChatGoogleGenerativeAI(
-    google_api_key="AIzaSyAFaWQQYXzVQR7-v87V9_XzgtmBYonWpcs",
+    google_api_key=os.getenv("GOOGLE_API_KEY"),
     model="gemini-1.5-flash"
 )
+
+
+
 
 chat_prompt = ChatPromptTemplate.from_messages([
     ("system", "You are a friendly AI tutor with expertise in Data Science and AI who tells step-by-step Python implementation for machine learning algorithms."),
